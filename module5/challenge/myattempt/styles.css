@@ -16,7 +16,7 @@ form{
 }
 
 h2{
-    margin: 2rem 1rem;
+    margin: 1rem;
 }
 
 ul{
@@ -26,11 +26,7 @@ ul{
 }
 
 li{
-    padding: 1rem;
-}
-
-input, select, textarea{
-    display: block;
+    padding: 0.5rem 1rem;
 }
 
 label {
@@ -39,6 +35,7 @@ label {
 }
 
 input, textarea, select{
+    display: block;
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
@@ -58,6 +55,11 @@ input, textarea, select{
     margin-right: 1rem;
 }
 
-.form-control button{
-    justify-content: right;
+.form-control-check{
+    display: flex;
+    align-items: center;
+}
+
+.form-control-check input{
+    height: 1rem;
 }
