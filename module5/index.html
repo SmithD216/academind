@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>HTML Forms</title>
 </head>
@@ -10,6 +13,51 @@
     <form action="/" method="GET">
         <label for="username">Your name</label>
         <input type="text" name="user-name" id="username">
+
+        <label for="usermessage">Your message</label>
+        <textarea name="user-message" id="usermessage" cols="30" rows="10"></textarea>
+
+        <label for="useremail">Your email address</label>
+        <input type="email" name="user-email" id="useremail">
+        <label for="userage">Your age</label>
+        <input type="number" step="1" name="user-age" id="userage">
+        <label for="userpassword">Your Password</label>
+        <input type="password" name="user-password" id="userpassword">
+        <label for="birthdate">Your birth date</label>
+        <input type="date" id="birthdate" name="user-birthdate">
+        <hr>
+        <label for="favorite-color">Your favorite color?</label>
+        <select name="favorite-color" id="favorite-color">
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+        </select>
+
+        <h2>How should we verify your account?</h2>
+        <div class="form-control-inline">
+            <input type="radio" name="verify" id="verify-text-message" value="text-message">
+            <label for="verify-text-message">Via text message</label>        
+        </div>
+        <div class="form-control-inline">
+            <input type="radio" name="verify" id="verify-phone-call" value="phone-call">
+            <label for="verify-phone-call">via phone call</label>    
+        </div>
+        <div class="form-control-inline">
+            <input type="radio" name="verify" id="verify-email" value="email">
+            <label for="verify-email">via email</label>    
+        </div>
+        <div class="form-control-inline">
+            <input type="checkbox" name="terms" id="agree-terms">
+            <label for="agree-terms">Agree to terms</label>    
+        </div>
+        <div class="form-control-inline">
+            <input type="checkbox" name="contact" id="contact-email" value="email">
+            <label for="contact-email">Contact me via email</label>    
+        </div>
+        <div class="form-control-inline">
+            <input type="checkbox" name="contact" id="contact-phone" value="phone">
+            <label for="contact-phone">Contact me via phone</label>    
+        </div>   
         <button>Submit</button>
     </form>
 </body>
