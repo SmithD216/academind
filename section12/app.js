@@ -11,6 +11,8 @@ let inputBox = document.querySelector('input');
 
 function countText(event){
     let enteredText = inputBox.value;
+    //alternative to above
+    // let enteredText = event.target.value;
     console.log(enteredText);
     console.log(event);
 }
