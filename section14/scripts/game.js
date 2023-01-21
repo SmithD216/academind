@@ -7,6 +7,14 @@ function startNewGame(){
     gameAreaElement.style.display = 'block';
 }
 
+function resetGameStatus(){
+    activePlayer = 0;
+    currentRound = 1;
+    gameOverElement.firstElementChild.innerHTML = 'You Won, <span id="winner-name">PLAYER NAME</span>!';
+    gameOverElement.style.display = 'none';
+
+}
+
 function switchPlayer(){
     if(activePlayer === 0 ){
         activePlayer = 1;
@@ -37,7 +45,11 @@ function selectGameField(event){
     gameData[selectedRow][selectedColumn] = activePlayer + 1;
 
     const winnerId = checkForGameOver();
-    console.log(winnerId);
+
+    if(winnerId !== 0){
+        endGame(winnerId);
+    }
+
     currentRound++;
     switchPlayer();
 }
@@ -68,4 +80,17 @@ function checkForGameOver(){
         return -1;
     }
     return 0;
+}
+
+function endGame(winnerId){
+    gameOverElement.style.display = 'block';
+
+    if(winnerId > 0){
+        const winnerName = players[winnerId-1].name;
+        gameOverElement.firstElementChild.firstElementChild.textContent =  winnerName;
+    } else {
+        gameOverElement.firstElementChild.textContent = "It\'s a draw!";
+    }
+
+    
 }
