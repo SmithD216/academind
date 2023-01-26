@@ -6,21 +6,20 @@
   </head>
   <body>
     <%- include('includes/header') %>
-    <%- include('includes/drawer') %>
+    <%- include('includes/side-drawer') %>
     <main>
       <h1>Recommended restaurants</h1>
-      <% if(numberOfRestaurants === 0){ %>
-        <p>unfortunately there are no restaurants how about you recommend some buddy?</p>
-      <% } else {%>
+      <% if (numberOfRestaurants === 0) { %>
+        <p>Unfortunately, we have no restaurants yet - maybe start recommending some?</p>
+      <% } else { %>
         <p>Find your next favorite restaurants with help of our other users!</p>
         <p>We found <%= numberOfRestaurants %> restaurants.</p>
         <ul id="restaurants-list">
-          <% for(const restaurant of restaurants){ %>
-            <%- include('includes/restaurant/restaurant-item', {restaurant: restaurant}) %>
+          <% for (const restaurant of restaurants) { %>
+            <%- include('includes/restaurants/restaurant-item', {restaurant: restaurant }) %>
           <% } %>
         </ul>
       <% } %>
-     
     </main>
   </body>
 </html>
