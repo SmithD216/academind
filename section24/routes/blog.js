@@ -56,8 +56,22 @@ router.post('/posts', async function(req, res) {
         req.body.content,
         req.body.author,
     ];
-    await db.query('INSERT INTO posts (title, summary, body, author_id) VALUES (?)', [data,]);
+    const [posts] = await db.query('INSERT INTO posts (title, summary, body, author_id) VALUES (?)', [data,]);
     res.redirect('/posts');
+});
+
+
+router.get('/posts/:id/edit', async function (req, res) {
+    const query = `
+    SELECT * FROM posts WHERE id = ?
+    `
+    const [posts] = await db.query(query, [req.params.id]);
+
+    if(!posts || posts.length === 0){
+        return res.status(404).render('404');
+    }
+
+    res.render('update-post', {post:posts[0]});
 });
 
 module.exports = router;
